@@ -1,0 +1,25 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer utilities {
+  .write-vertical {
+    writing-mode: vertical-lr;
+  }
+}
+
+:root {
+  --theme-color: #ffce9f;
+  --sub-color: #a61c00f0;
+  --sub-color-5: #a61c0080;
+  --header-color: #fffafa;
+  --font-strong: "Potta One", cursive;
+  --font-header: 'Klee One', cursive;
+}
+
+body {
+  font-family: "Zen Maru Gothic", sans-serif;
+  background: var(--theme-color);
+}
