@@ -1,7 +1,7 @@
 <template>
   <div class="w-3/4 mx-auto relative pt-20 pb-10">
     <img
-      src="@/assets/images/owner.jpg"
+      src="@/assets/images/owner.webp"
       alt="オーナー"
       class="w-full object-contain rounded"
     />

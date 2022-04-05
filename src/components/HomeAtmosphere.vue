@@ -3,19 +3,19 @@
     <div class="text-4xl mb-5 font-bold text-center">お店の雰囲気</div>
     <div class="my-10 relative p-2">
       <img
-        src="@/assets/images/interior.jpg"
+        src="@/assets/images/interior.webp"
         alt="床にもテーブルにも木材"
         class="w-full object-contain opacity-0"
       />
       <img
-        src="@/assets/images/interior.jpg"
+        src="@/assets/images/interior.webp"
         alt="床にもテーブルにも木材"
         :class="`w-2/3 object-contain absolute bottom-0 right-2 rounded-lg animation transform ${
           open ? '' : 'translate-x-1/2'
         }`"
       />
       <img
-        src="@/assets/images/inner.jpg"
+        src="@/assets/images/inner.webp"
         alt="天井にも木材"
         :class="`w-2/3 object-contain absolute top-0 left-2 rounded-lg animation transform ${
           open ? '' : '-translate-x-1/2'
@@ -73,23 +73,23 @@ import { defineComponent, onMounted, ref } from "vue";
 import SlideImages from "./SlideImages.vue";
 const INITIAL_IMAGES: ImagePayload[] = [
   {
-    src: ACCESSORIES_IMAGE_PATH + "entrance.jpg",
+    src: ACCESSORIES_IMAGE_PATH + "entrance.webp",
     alt: "玄関に展示中！",
   },
   {
-    src: ACCESSORIES_IMAGE_PATH + "pouch.jpg",
+    src: ACCESSORIES_IMAGE_PATH + "pouch.webp",
     alt: "ポーチ",
   },
   {
-    src: ACCESSORIES_IMAGE_PATH + "pen.jpg",
+    src: ACCESSORIES_IMAGE_PATH + "pen.webp",
     alt: "ペンケース",
   },
   {
-    src: ACCESSORIES_IMAGE_PATH + "mask.jpg",
+    src: ACCESSORIES_IMAGE_PATH + "mask.webp",
     alt: "マスクカバー",
   },
   {
-    src: ACCESSORIES_IMAGE_PATH + "jam.jpg",
+    src: ACCESSORIES_IMAGE_PATH + "jam.webp",
     alt: "ジャム",
   },
 ];

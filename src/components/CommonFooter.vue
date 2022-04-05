@@ -2,7 +2,7 @@
   <div class="bg-sub text-white">
     <div class="relative">
       <img
-        src="@/assets/images/cactus.jpg"
+        src="@/assets/images/cactus.webp"
         alt="サボテン"
         class="w-full object-contain"
       />
@@ -42,7 +42,7 @@
         <p class="inline-block text-xl font-bold">facebook</p>
       </a>
     </div>
-    <div class="pt-10 text-lg">
+    <div class="pt-10 text-lg lg:hidden">
       <div class="px-3">
         <div class="text-3xl mb-4 font-bold">営業時間</div>
         <div class="px-3 mb-10">
@@ -73,7 +73,7 @@
       <div class="px-3">
         <div class="text-3xl mb-4 font-bold">お問合せ</div>
         <div class="px-3 mb-10">
-          <p class="flex icenter">
+          <p class="flex items-center">
             TEL：<a
               href="tel:0857860515"
               class="inline-flex items-center underline"

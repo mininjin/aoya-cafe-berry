@@ -18,10 +18,10 @@ import { defineComponent } from "vue";
 import SlideImages from "../SlideImages.vue";
 
 const INITIAL_IMAGES: ImagePayload[] = [
-  { src: LUNCH_IMAGE_PATH + "shrimp.jpg", alt: "日替わりランチ（エビフライ）" },
-  { src: LUNCH_IMAGE_PATH + "hamburg.jpg", alt: "日替わりランチ（ハンバーグ）" },
-  { src: LUNCH_IMAGE_PATH + "chicken.jpg", alt: "チキンカツ定食" },
-  { src: LUNCH_IMAGE_PATH + "curry.jpg", alt: "カレーライス" },
+  { src: LUNCH_IMAGE_PATH + "shrimp.webp", alt: "日替わりランチ（エビフライ）" },
+  { src: LUNCH_IMAGE_PATH + "hamburg.webp", alt: "日替わりランチ（ハンバーグ）" },
+  { src: LUNCH_IMAGE_PATH + "chicken.webp", alt: "チキンカツ定食" },
+  { src: LUNCH_IMAGE_PATH + "curry.webp", alt: "カレーライス" },
 ];
 const ANIMATION_DURATION = 1500;
 const INTERVAL_TIME = 5000;

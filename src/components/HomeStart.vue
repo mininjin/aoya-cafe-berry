@@ -2,7 +2,7 @@
   <div class="py-10">
     <div class="flex items-start py-5">
       <img
-        src="@/assets/images/signature.jpg"
+        src="@/assets/images/signature.webp"
         alt="ベリィの看板"
         class="w-3/4 object-contain object-left rounded-r-xl animate"
       />
