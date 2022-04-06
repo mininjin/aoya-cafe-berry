@@ -1,5 +1,94 @@
 <template>
-  <div class="w-full relative h-72 overflow-hidden" ref="container">
+  <div class="w-full relative overflow-hidden bg-theme" ref="container">
+    <div
+      ref="initialContainer"
+      class="flex w-full transition-all ease-linear"
+      :style="{
+        transitionDuration: ANIMATION_DURATION / 2 + 'ms',
+      }"
+    >
+      <div class="w-2/3 aspect-square">
+        <div class="flex flex-1">
+          <img
+            v-if="isArray(initialImage.left.top)"
+            :src="initialImage.left.top[0].src"
+            :alt="initialImage.left.top[0].alt"
+            class="rounded-xl px-1 pb-1 pt-2 object-cover object-center w-1/2"
+          />
+          <img
+            v-if="isArray(initialImage.left.top)"
+            :src="initialImage.left.top[1].src"
+            :alt="initialImage.left.top[1].alt"
+            class="rounded-xl px-1 pb-1 pt-2 object-cover object-center w-1/2"
+          />
+          <img
+            v-else
+            :src="initialImage.left.top.src"
+            :alt="initialImage.left.top.alt"
+            class="
+              rounded-xl
+              px-1
+              pb-1
+              pt-2
+              object-cover object-center
+              w-full
+              flex-1
+            "
+          />
+        </div>
+        <div class="flex flex-1">
+          <img
+            v-if="isArray(initialImage.left.bottom)"
+            :src="initialImage.left.bottom[0].src"
+            :alt="initialImage.left.bottom[0].alt"
+            class="
+              rounded-xl
+              px-1
+              pt-1
+              pb-2
+              object-cover object-center
+              flex-1
+              w-1/2
+            "
+          />
+          <img
+            v-if="isArray(initialImage.left.bottom)"
+            :src="initialImage.left.bottom[1].src"
+            :alt="initialImage.left.bottom[1].alt"
+            class="
+              rounded-xl
+              px-1
+              pt-1
+              pb-2
+              object-cover object-center
+              flex-1
+              w-1/2
+            "
+          />
+          <img
+            v-else
+            :src="initialImage.left.bottom.src"
+            :alt="initialImage.left.bottom.alt"
+            class="
+              rounded-xl
+              px-1
+              pt-1
+              pb-2
+              object-cover object-center
+              w-full
+              flex-1
+            "
+          />
+        </div>
+      </div>
+      <div class="w-1/3 aspect-[3/4]">
+        <img
+          :src="initialImage.right.src"
+          :alt="initialImage.right.alt"
+          class="rounded-xl px-1 py-2 object-cover object-center w-full h-full"
+        />
+      </div>
+    </div>
     <transition-group
       enter-active-class="enter"
       enter-from-class="enter-from"
@@ -8,19 +97,108 @@
       <div
         v-for="image in images"
         :key="image.key"
-        class="absolute w-full -translate-x-full"
+        class="
+          absolute
+          w-full
+          h-full
+          flex
+          top-0
+          left-0
+          bg-theme
+          -translate-x-full
+        "
         :style="{
           transitionDuration: ANIMATION_DURATION + 'ms',
         }"
       >
-        <img
-          :src="image.src"
-          :alt="image.alt"
-          class="object-contain w-1/3"
-          :style="{
-            transform: `translateY(${image.top}px)`,
-          }"
-        />
+        <div class="flex-1 flex flex-col h-full">
+          <div class="flex flex-1">
+            <img
+              v-if="isArray(image.left.top)"
+              :src="image.left.top[0].src"
+              :alt="image.left.top[0].alt"
+              class="rounded-xl px-1 pb-1 pt-2 object-cover object-center w-1/2"
+            />
+            <img
+              v-if="isArray(image.left.top)"
+              :src="image.left.top[1].src"
+              :alt="image.left.top[1].alt"
+              class="rounded-xl px-1 pb-1 pt-2 object-cover object-center w-1/2"
+            />
+            <img
+              v-else
+              :src="image.left.top.src"
+              :alt="image.left.top.alt"
+              class="
+                rounded-xl
+                px-1
+                pb-1
+                pt-2
+                object-cover object-center
+                w-full
+                flex-1
+              "
+            />
+          </div>
+          <div class="flex flex-1">
+            <img
+              v-if="isArray(image.left.bottom)"
+              :src="image.left.bottom[0].src"
+              :alt="image.left.bottom[0].alt"
+              class="
+                rounded-xl
+                px-1
+                pt-1
+                pb-2
+                object-cover object-center
+                flex-1
+                w-1/2
+              "
+            />
+            <img
+              v-if="isArray(image.left.bottom)"
+              :src="image.left.bottom[1].src"
+              :alt="image.left.bottom[1].alt"
+              class="
+                rounded-xl
+                px-1
+                pt-1
+                pb-2
+                object-cover object-center
+                flex-1
+                w-1/2
+              "
+            />
+            <img
+              v-else
+              :src="image.left.bottom.src"
+              :alt="image.left.bottom.alt"
+              class="
+                rounded-xl
+                px-1
+                pt-1
+                pb-2
+                object-cover object-center
+                w-full
+                flex-1
+              "
+            />
+          </div>
+        </div>
+        <div class="w-3/7">
+          <img
+            :src="image.right.src"
+            :alt="image.right.alt"
+            class="
+              rounded-xl
+              px-1
+              py-2
+              object-cover object-center
+              w-full
+              h-full
+            "
+          />
+        </div>
       </div>
     </transition-group>
   </div>
@@ -29,167 +207,153 @@
 <script lang="ts">
 import { ImagePayload } from "@/@types/type";
 import { VEGETABLES_IMAGE_PATH } from "@/constants/constant";
+import { isArray } from "@vue/shared";
 import { computed, defineComponent, onMounted, ref } from "vue";
 
-type ImageListElement = ImagePayload & { top: number; delay: number };
+type ImageRow = [ImagePayload, ImagePayload] | ImagePayload;
+type ImageListElement = {
+  left: { top: ImageRow; bottom: ImageRow };
+  right: ImagePayload;
+};
 const ANIMATION_DURATION = 10000;
-const PUSH_WAIT_TIME = 100;
 const IMAGE_LIST: ImageListElement[] = [
   {
-    src: VEGETABLES_IMAGE_PATH + "tomato.webp",
-    alt: "トマト",
-    top: 0,
-    delay: 0,
+    left: {
+      top: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "yuzu.webp",
+          alt: "ゆず",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "tomato.webp",
+          alt: "トマト",
+        },
+      ],
+      bottom: {
+        src: VEGETABLES_IMAGE_PATH + "ginger.webp",
+        alt: "しょうが",
+      },
+    },
+    right: {
+      src: VEGETABLES_IMAGE_PATH + "shiitake.webp",
+      alt: "椎茸",
+    },
   },
   {
-    src: VEGETABLES_IMAGE_PATH + "red_pepper.webp",
-    alt: "唐辛子",
-    top: 60,
-    delay: ANIMATION_DURATION * 0.05,
+    left: {
+      top: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "green_tomato.webp",
+          alt: "青トマト",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "red_pepper.webp",
+          alt: "唐辛子",
+        },
+      ],
+      bottom: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "pear.webp",
+          alt: "洋梨",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "chestnut.webp",
+          alt: "栗",
+        },
+      ],
+    },
+    right: {
+      src: VEGETABLES_IMAGE_PATH + "potato.webp",
+      alt: "じゃがいも",
+    },
   },
   {
-    src: VEGETABLES_IMAGE_PATH + "onion.webp",
-    alt: "紫たまねぎ",
-    top: 10,
-    delay: ANIMATION_DURATION * 0.22,
+    left: {
+      top: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "moroheiya.webp",
+          alt: "モロヘイヤ",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "red_tomato.webp",
+          alt: "昆布トマト",
+        },
+      ],
+      bottom: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "ginkgo.webp",
+          alt: "銀杏",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "strawberry.webp",
+          alt: "いちご",
+        },
+      ],
+    },
+    right: {
+      src: VEGETABLES_IMAGE_PATH + "lettuce.webp",
+      alt: "レタス",
+    },
   },
   {
-    src: VEGETABLES_IMAGE_PATH + "chestnut.webp",
-    alt: "栗",
-    top: 58,
-    delay: ANIMATION_DURATION * 0.27,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "ginger.webp",
-    alt: "しょうが",
-    top: 0,
-    delay: ANIMATION_DURATION * 0.4,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "lemon.webp",
-    alt: "レモン",
-    top: 40,
-    delay: ANIMATION_DURATION * 0.45,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "lettuce.webp",
-    alt: "レタス",
-    top: 0,
-    delay: ANIMATION_DURATION * 0.65,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "strawberry.webp",
-    alt: "いちご",
-    top: 65,
-    delay: ANIMATION_DURATION * 0.68,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "pear.webp",
-    alt: "洋梨",
-    top: 0,
-    delay: ANIMATION_DURATION * 0.84,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "yuzu.webp",
-    alt: "ゆず",
-    top: 55,
-    delay: ANIMATION_DURATION * 0.87,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "moroheiya.webp",
-    alt: "モロヘイヤ",
-    top: 5,
-    delay: ANIMATION_DURATION * 1.04,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "ume.webp",
-    alt: "梅干し",
-    top: 70,
-    delay: ANIMATION_DURATION * 1.07,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "shiitake.webp",
-    alt: "椎茸",
-    top: 20,
-    delay: ANIMATION_DURATION * 1.26,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "green_tomato.webp",
-    alt: "青トマト",
-    top: 0,
-    delay: ANIMATION_DURATION * 1.47,
-  },
-  {
-    src: VEGETABLES_IMAGE_PATH + "ginkgo.webp",
-    alt: "銀杏",
-    top: 55,
-    delay: ANIMATION_DURATION * 1.52,
+    left: {
+      top: { src: VEGETABLES_IMAGE_PATH + "cabbage.webp", alt: "キャベツ" },
+      bottom: [
+        {
+          src: VEGETABLES_IMAGE_PATH + "onion.webp",
+          alt: "紫たまねぎ",
+        },
+        {
+          src: VEGETABLES_IMAGE_PATH + "ume.webp",
+          alt: "梅干し",
+        },
+      ],
+    },
+    right: {
+      src: VEGETABLES_IMAGE_PATH + "lemon.webp",
+      alt: "レモン",
+    },
   },
 ];
 
 export default defineComponent({
   setup() {
     const container = ref<HTMLElement>();
-    const height = ref(0);
     const list = computed(() =>
-      IMAGE_LIST.map((v, i) => ({
-        ...v,
-        top: (height.value * v.top) / 100,
-        key: v.alt + i,
-      }))
+      IMAGE_LIST.map((v, i) => ({ ...v, key: v.right.alt + i }))
     );
     const images = ref<typeof list.value>([]);
-    const waitTime = computed(() =>
-      Math.max(
-        ANIMATION_DURATION * 1.18 -
-          IMAGE_LIST.map((v) => v.delay).reduce(
-            (prev, cur) => (prev < cur ? cur : prev),
-            0
-          ),
-        ANIMATION_DURATION * 0.18
-      )
-    );
+    const initialImage = computed(() => IMAGE_LIST.slice(-1)[0]);
+    const initialContainer = ref<HTMLElement>();
+    let index = 0;
+
+    const add = () => {
+      const image = list.value[index];
+      images.value.push(image);
+      setTimeout(() => {
+        images.value.splice(0, 1);
+      }, ANIMATION_DURATION / 1.5);
+    };
 
     onMounted(async () => {
-      height.value = container.value?.clientHeight || 0;
-      // initial push
-      await Promise.all(
-        list.value.map(
-          (v, i) =>
-            new Promise<void>((resolve) => {
-              setTimeout(() => {
-                images.value.push(v);
-                resolve();
-              }, v.delay);
-            })
-        )
-      );
-      // interval
-      if (images.value.length > 0) {
-        // eslint-disable-next-line no-constant-condition
-        while (1) {
-          // wait
-          await new Promise((resolve) => setTimeout(resolve, waitTime.value));
-          // push
-          await Promise.all(
-            images.value.map(
-              (v, i) =>
-                new Promise<void>((resolve) => {
-                  setTimeout(() => {
-                    const image = images.value.splice(0, 1)[0];
-                    setTimeout(() => {
-                      images.value.push(image);
-                      resolve();
-                    }, PUSH_WAIT_TIME);
-                  }, v.delay);
-                })
-            )
-          );
-        }
-      }
+      setTimeout(() => {
+        initialContainer.value?.classList.add("-translate-x-full");
+      }, 10);
+      add();
+      setInterval(() => {
+        index = (index + 1) % list.value.length;
+        add();
+      }, ANIMATION_DURATION / 2);
     });
 
-    return { images, ANIMATION_DURATION, container };
+    return {
+      images,
+      ANIMATION_DURATION,
+      container,
+      isArray,
+      initialImage,
+      initialContainer,
+    };
   },
 });
 </script>

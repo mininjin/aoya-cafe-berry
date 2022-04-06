@@ -70,7 +70,7 @@
 import { ImagePayload } from "@/@types/type";
 import { ACCESSORIES_IMAGE_PATH } from "@/constants/constant";
 import { defineComponent, onMounted, ref } from "vue";
-import SlideImages from "./SlideImages.vue";
+import SlideImages from "../SlideImages.vue";
 const INITIAL_IMAGES: ImagePayload[] = [
   {
     src: ACCESSORIES_IMAGE_PATH + "entrance.webp",

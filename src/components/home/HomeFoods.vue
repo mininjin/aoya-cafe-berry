@@ -43,9 +43,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HomeVegetables from "./home/HomeVegetables.vue";
-import HomeLunch from "./home/HomeLunch.vue";
-import HomeSweets from "./home/HomeSweets.vue";
+import HomeVegetables from "./HomeVegetables.vue";
+import HomeLunch from "./HomeLunch.vue";
+import HomeSweets from "./HomeSweets.vue";
 
 export default defineComponent({
   components: { HomeVegetables, HomeLunch, HomeSweets },
