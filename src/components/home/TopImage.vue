@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-full md:max-w-3xl overflow-hidden fixed top-0 left-0"
+    class="h-screen w-full lg:max-w-4xl overflow-hidden fixed top-0 left-0"
   >
     <img
       src="@/assets/images/berry.webp"
@@ -9,7 +9,7 @@
     />
     <ImageSlideshow :list="IMAGE_LIST" :duration="ANIMATION_DURATION" />
   </div>
-  <div class="h-screen relative top-0 left-0 max-w-3xl">
+  <div class="h-screen relative top-0 left-0 lg:max-w-4xl">
     <img
       src="@/assets/logo.svg"
       alt="ロゴ"

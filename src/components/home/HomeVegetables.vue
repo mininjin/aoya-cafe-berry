@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative overflow-hidden bg-theme" ref="container">
+  <div class="w-full relative overflow-hidden bg-theme md:w-1/2 mx-auto" ref="container">
     <div
       ref="initialContainer"
       class="flex w-full transition-all ease-linear"

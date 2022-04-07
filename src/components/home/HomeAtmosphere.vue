@@ -5,19 +5,19 @@
       <img
         src="@/assets/images/interior.webp"
         alt="床にもテーブルにも木材"
-        class="w-full object-contain opacity-0"
+        class="w-full md:w-2/3 object-contain opacity-0"
       />
       <img
         src="@/assets/images/interior.webp"
         alt="床にもテーブルにも木材"
-        :class="`w-2/3 object-contain absolute bottom-0 right-2 rounded-lg animation transform ${
+        :class="`w-2/3 md:w-1/2 object-contain absolute bottom-0 right-2 rounded-lg animation transform ${
           open ? '' : 'translate-x-1/2'
         }`"
       />
       <img
         src="@/assets/images/inner.webp"
         alt="天井にも木材"
-        :class="`w-2/3 object-contain absolute top-0 left-2 rounded-lg animation transform ${
+        :class="`w-2/3 md:w-1/2 object-contain absolute top-0 left-2 rounded-lg animation transform ${
           open ? '' : '-translate-x-1/2'
         }`"
       />
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="my-10 relative pb-16">
-      <div class="w-3/4 aspect-[4/3]">
+      <div class="w-3/4 md:w-1/2 aspect-[4/3]">
         <SlideImages
           :list="INITIAL_IMAGES"
           :duration="ANIMATION_DURATION"

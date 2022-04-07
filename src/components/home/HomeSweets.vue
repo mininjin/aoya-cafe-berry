@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mb-3 flex flex-col py-5 overflow-x-hidden"
+    class="mb-3 flex flex-col py-5 overflow-x-hidden md:w-1/2 md:overflow-visible mx-auto"
     ref="container"
   >
     <div class="flex items-start space-x-2">

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`sticky top-0 w-full flex flex-col shadow-xl z-30 items-end bg-white bg-opacity-75 md:hidden ${
+    :class="`sticky top-0 w-full flex flex-col shadow-xl z-30 items-end bg-white bg-opacity-75 lg:hidden ${
       menu ? 'opacity-0' : ''
     }`"
   >
@@ -19,40 +19,24 @@
         café Berry
       </div>
       <div class="flex items-center flex-grow-0 px-3" @click="toggleMenu">
-        <transition
-          enter-active-class="transition-all duration-500"
-          enter-from-class="opacity-0"
-          enter-to-class="opacity-1"
-          mode="out-in"
-        >
-          <font-awesome-icon
-            v-if="menu"
-            icon="bars"
-            class="w-5 text-sub inline lg:hidden"
-          />
-          <font-awesome-icon
-            v-else
-            icon="bars"
-            class="w-5 text-sub inline lg:hidden"
-          />
-        </transition>
+        <font-awesome-icon icon="bars" class="w-5 text-sub inline lg:hidden" />
       </div>
     </div>
   </div>
   <div
-    :class="`fixed top-0 w-full h-full md:z-0 ${
-      menu ? 'z-50' : 'opacity-0 -z-50 md:opacity-100'
+    :class="`fixed top-0 w-full h-full lg:z-0 ${
+      menu ? 'z-50' : 'opacity-0 -z-50 lg:opacity-100'
     }`"
   >
     <div class="flex h-full w-full">
-      <div class="hidden md:block w-full max-w-3xl"></div>
+      <div class="hidden lg:block w-full max-w-4xl"></div>
       <div
         class="
           h-full
           flex-grow flex flex-col
           items-end
           bg-white bg-opacity-75
-          md:bg-header
+          lg:bg-header
         "
       >
         <div class="flex items-center py-2 px-4 w-full bg-header">
@@ -76,7 +60,7 @@
             café Berry
           </div>
           <div
-            class="flex items-center flex-grow-0 px-3 md:opacity-0"
+            class="flex items-center flex-grow-0 px-3 lg:opacity-0"
             @click="toggleMenu"
           >
             <transition
@@ -87,7 +71,7 @@
             >
               <font-awesome-icon
                 v-if="menu"
-                icon="bars"
+                icon="xmark"
                 class="w-5 text-sub inline lg:hidden"
               />
               <font-awesome-icon
@@ -99,8 +83,8 @@
           </div>
         </div>
         <div
-          :class="`flex-1 md:w-full p-5 text-sub font-bold left bg-header inline-flex flex-col items-stretch transition-all duration-500 transform ${
-            menu ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
+          :class="`flex-1 lg:w-full p-5 text-sub font-bold left bg-header inline-flex flex-col items-stretch transition-all duration-500 transform ${
+            menu ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'
           }`"
         >
           <p class="font-strong text-xl mb-4 mt-3">ベリぃのこと</p>

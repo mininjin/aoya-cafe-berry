@@ -1,10 +1,9 @@
 <template>
-  <div class="relative z-5 bg-theme left-0 max-w-3xl">
+  <div class="relative z-5 bg-theme left-0 max-w-4xl">
     <StickyHeader />
-    <HomeStart />
-    <HomeFoods />
-    <HomeAtmosphere />
-    <HomeOwner />
+    <BentoStart />
+    <BentoMenu />
+    <BentoBottom />
     <CommonFooter />
   </div>
 </template>
@@ -13,20 +12,18 @@
 import { defineComponent } from "vue";
 import StickyHeader from "@/components/StickyHeader.vue";
 import CommonFooter from "@/components/CommonFooter.vue";
-import HomeStart from "@/components/home/HomeStart.vue";
-import HomeFoods from "@/components/home/HomeFoods.vue";
-import HomeAtmosphere from "@/components/home/HomeAtmosphere.vue";
-import HomeOwner from "@/components/home/HomeOwner.vue";
+import BentoStart from "@/components/bento/BentoStart.vue";
+import BentoMenu from "@/components/bento/BentoMenu.vue";
+import BentoBottom from "@/components/bento/BentoBottom.vue";
 
 export default defineComponent({
   name: "HomeView",
   components: {
     StickyHeader,
-    HomeStart,
-    HomeFoods,
-    HomeAtmosphere,
-    HomeOwner,
     CommonFooter,
+    BentoStart,
+    BentoMenu,
+    BentoBottom,
   },
 });
 </script>

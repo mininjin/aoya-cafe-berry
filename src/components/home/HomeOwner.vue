@@ -1,5 +1,5 @@
 <template>
-  <div class="w-3/4 mx-auto relative pt-20 pb-10">
+  <div class="w-3/4 md:w-1/2 mx-auto relative pt-20 pb-10">
     <img
       src="@/assets/images/owner.webp"
       alt="オーナー"

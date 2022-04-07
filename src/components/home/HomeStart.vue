@@ -4,13 +4,13 @@
       <img
         src="@/assets/images/signature.webp"
         alt="ベリィの看板"
-        class="w-3/4 object-contain object-left rounded-r-xl animate"
+        class="w-3/4 md:w-1/2 object-contain object-left rounded-r-xl animate"
       />
-      <div class="flex-auto px-3 text-center flex">
-        <span class="write-vertical text-2xl font-bold text-right"
+      <div class="flex-auto px-3 text-center flex text-2xl md:text-3xl ">
+        <span class="write-vertical font-bold text-right md:text-left md:pt-10"
           >自家栽培のお米に野菜</span
         >
-        <span class="write-vertical text-2xl font-bold text-left"
+        <span class="write-vertical font-bold text-left"
           >海と山 自然豊かな青谷</span
         >
       </div>

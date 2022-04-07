@@ -1,6 +1,6 @@
 <template>
   <div class="mb-3 p-5">
-    <div class="w-full aspect-[4/3] rounded-xl overflow-hidden">
+    <div class="w-full md:w-1/2 mx-auto aspect-[4/3] rounded-xl overflow-hidden">
       <SlideImages
         :list="INITIAL_IMAGES"
         :duration="ANIMATION_DURATION"

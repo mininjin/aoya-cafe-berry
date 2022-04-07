@@ -1,6 +1,6 @@
 <template>
   <TopImage />
-  <div class="relative z-5 bg-theme left-0 md:max-w-3xl">
+  <div class="relative z-5 bg-theme left-0 lg:max-w-4xl">
     <StickyHeader />
     <HomeStart />
     <HomeFoods />

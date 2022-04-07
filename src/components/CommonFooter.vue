@@ -4,7 +4,7 @@
       <img
         src="@/assets/images/cactus.webp"
         alt="サボテン"
-        class="w-full object-contain"
+        class="w-full object-contain md:max-h-52 md:object-cover md:object-center"
       />
       <div
         class="
@@ -42,7 +42,7 @@
         <p class="inline-block text-xl font-bold">facebook</p>
       </a>
     </div>
-    <div class="pt-10 text-lg lg:hidden">
+    <div class="pt-10 text-lg">
       <div class="px-3">
         <div class="text-3xl mb-4 font-bold">営業時間</div>
         <div class="px-3 mb-10">
