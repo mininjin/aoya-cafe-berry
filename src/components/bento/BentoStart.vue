@@ -1,5 +1,5 @@
 <template>
-  <div class="py-10">
+  <div class="py-10 w-full">
     <div class="flex items-stretch py-5 relative">
       <img
         src="@/assets/images/bento/bento_top.webp"

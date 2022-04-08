@@ -1,5 +1,5 @@
 <template>
-  <div class="py-10 overflow-hidden">
+  <div class="py-10 overflow-hidden w-full">
     <div
       :class="` transition-all duration-2000 ${
         bentoOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -29,14 +29,19 @@
         <div class="flex-grow"></div>
       </div>
     </div>
-    <div class="mt-10 p-2 md:flex w-full justify-center space-x-3" ref="horsDoevreContainer">
+    <div
+      class="mt-10 p-2 md:flex w-full justify-center space-x-3"
+      ref="horsDoevreContainer"
+    >
       <div class="flex h-52">
         <div class="flex-grow"></div>
         <img
           src="@/assets/images/bento/hors_doevre.webp"
           alt="オードブル"
-          :class="`h-full object-contain rounded-lg transition-all duration-2000 transform ${
-            horsDoevreOpen ? 'translate-x-0' : 'translate-x-1/2 md:-translate-x-1/2'
+          :class="`h-full object-contain rounded-lg transition-all duration-2000 transform md:transform-none ${
+            horsDoevreOpen
+              ? 'translate-x-0'
+              : 'translate-x-1/2 md:-translate-x-1/2'
           }`"
         />
       </div>
@@ -44,8 +49,10 @@
         <img
           src="@/assets/images/bento/hors_doevre_red.webp"
           alt="皿盛り"
-          :class="`h-full object-contain rounded-lg transition-all duration-2000 transform ${
-            horsDoevreOpen ? 'translate-x-0' : '-translate-x-1/2 md:translate-x-1/2 '
+          :class="`h-full object-contain rounded-lg transition-all duration-2000 transform md:transform-none ${
+            horsDoevreOpen
+              ? 'translate-x-0'
+              : '-translate-x-1/2 md:translate-x-1/2 '
           }`"
         />
         <div class="flex-grow"></div>
@@ -71,6 +78,7 @@
 </template>
 
 <script lang="ts">
+import { checkScrollPosition } from "@/functions/checkScrollPosition";
 import { defineComponent, onMounted, ref } from "vue";
 
 export default defineComponent({
@@ -80,20 +88,10 @@ export default defineComponent({
     const horsDoevreContainer = ref<HTMLElement>();
     const horsDoevreOpen = ref(false);
 
-    const checkPosition = (container?: HTMLElement): boolean => {
-      const top =
-        (container?.getBoundingClientRect().top || 0) + window.scrollY;
-      return (
-        container != undefined &&
-        window.scrollY > top - container.clientHeight &&
-        window.scrollY <= top + container.offsetHeight
-      );
-    };
-
     onMounted(() => {
       window.addEventListener("scroll", () => {
-        bentoOpen.value = checkPosition(bentoContainer.value);
-        horsDoevreOpen.value = checkPosition(horsDoevreContainer.value);
+        bentoOpen.value = checkScrollPosition(bentoContainer.value);
+        horsDoevreOpen.value = checkScrollPosition(horsDoevreContainer.value);
       });
     });
 

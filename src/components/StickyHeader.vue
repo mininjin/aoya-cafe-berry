@@ -24,8 +24,8 @@
     </div>
   </div>
   <div
-    :class="`fixed top-0 w-full h-full lg:z-0 ${
-      menu ? 'z-50' : 'opacity-0 -z-50 lg:opacity-100'
+    :class="`fixed top-0 w-full h-full ${
+      menu ? 'z-50' : 'opacity-0 -z-50 lg:opacity-100 lg:z-50'
     }`"
   >
     <div class="flex h-full w-full">
@@ -107,7 +107,7 @@
             />0857-86-0515</a
           >
           <p class="font-strong text-xl mb-4 mt-3">SNS</p>
-          <div class="flex">
+          <div class="flex flex-wrap">
             <a
               href="https://www.instagram.com/aoya.cafe_berry"
               class="inline-flex items-center flex-col mx-3"

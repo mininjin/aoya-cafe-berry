@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-sub-0.5 py-10 px-3" ref="container">
+  <div class="bg-sub-0.5 py-10 px-3 w-full" ref="container">
     <div
       :class="`flex flex-wrap w-full transition-all duration-1500 ${
         open ? '' : 'opacity-0 translate-y-10'

@@ -69,6 +69,7 @@
 <script lang="ts">
 import { ImagePayload } from "@/@types/type";
 import { ACCESSORIES_IMAGE_PATH } from "@/constants/constant";
+import { checkScrollPosition } from "@/functions/checkScrollPosition";
 import { defineComponent, onMounted, ref } from "vue";
 import SlideImages from "../SlideImages.vue";
 const INITIAL_IMAGES: ImagePayload[] = [
@@ -104,17 +105,7 @@ export default defineComponent({
 
     onMounted(() => {
       window.addEventListener("scroll", () => {
-        const top =
-          (container.value?.getBoundingClientRect()?.top || 0) + window.scrollY;
-        if (
-          container.value &&
-          window.scrollY > top - container.value.clientHeight / 2 &&
-          window.scrollY <= top + container.value.offsetHeight
-        ) {
-          open.value = true;
-        } else {
-          open.value = false;
-        }
+        open.value = checkScrollPosition(container.value);
       });
     });
 

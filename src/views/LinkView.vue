@@ -1,9 +1,7 @@
 <template>
   <div class="relative z-5 bg-theme left-0 max-w-4xl overflow-hidden">
     <StickyHeader />
-    <BentoStart />
-    <BentoMenu />
-    <BentoBottom />
+    <LinkMain />
     <CommonFooter />
   </div>
 </template>
@@ -12,18 +10,14 @@
 import { defineComponent } from "vue";
 import StickyHeader from "@/components/StickyHeader.vue";
 import CommonFooter from "@/components/CommonFooter.vue";
-import BentoStart from "@/components/bento/BentoStart.vue";
-import BentoMenu from "@/components/bento/BentoMenu.vue";
-import BentoBottom from "@/components/bento/BentoBottom.vue";
+import LinkMain from "@/components/link/LinkMain.vue";
 
 export default defineComponent({
   name: "HomeView",
   components: {
     StickyHeader,
     CommonFooter,
-    BentoStart,
-    BentoMenu,
-    BentoBottom,
+    LinkMain,
   },
 });
 </script>
