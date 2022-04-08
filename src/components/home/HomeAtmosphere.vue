@@ -3,19 +3,19 @@
     <div class="text-4xl mb-5 font-bold text-center">お店の雰囲気</div>
     <div class="my-10 relative p-2">
       <img
-        src="@/assets/images/interior.webp"
+        src="@/assets/images/home/interior.webp"
         alt="床にもテーブルにも木材"
         class="w-full md:w-2/3 object-contain opacity-0"
       />
       <img
-        src="@/assets/images/interior.webp"
+        src="@/assets/images/home/interior.webp"
         alt="床にもテーブルにも木材"
         :class="`w-2/3 md:w-1/2 object-contain absolute bottom-0 right-2 rounded-lg animation transform ${
           open ? '' : 'translate-x-1/2'
         }`"
       />
       <img
-        src="@/assets/images/inner.webp"
+        src="@/assets/images/home/inner.webp"
         alt="天井にも木材"
         :class="`w-2/3 md:w-1/2 object-contain absolute top-0 left-2 rounded-lg animation transform ${
           open ? '' : '-translate-x-1/2'

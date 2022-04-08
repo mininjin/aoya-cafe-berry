@@ -5,12 +5,12 @@
   >
     <div class="flex items-start space-x-2">
       <img
-        src="@/assets/images/cake.webp"
+        src="@/assets/images/home/cake.webp"
         alt="シフォンケーキ"
         :class="`w-1/2 object-contain rounded-xl ${open ? 'animate-fluffy-br' : ''}`"
       />
       <img
-        src="@/assets/images/coffee.webp"
+        src="@/assets/images/home/coffee.webp"
         alt="コーヒー"
         :class="`w-1/2 object-contain rounded-xl ${open ? 'animate-fluffy-bl' : ''}`"
       />
@@ -22,19 +22,19 @@
         }`"
       >
         <img
-          src="@/assets/images/tee.webp"
+          src="@/assets/images/home/tee.webp"
           alt="紅茶"
           class="w-full object-contain rounded-xl"
         />
         <img
-          src="@/assets/images/pudding.webp"
+          src="@/assets/images/home/pudding.webp"
           alt="プリン"
           class="w-full object-contain rounded-xl"
         />
       </div>
       <div class="flex-auto">
         <img
-          src="@/assets/images/cheese.webp"
+          src="@/assets/images/home/cheese.webp"
           alt="チーズケーキ"
           :class="`w-full object-contain rounded-xl ${open ? 'animate-fluffy-tl' : ''}`"
         />

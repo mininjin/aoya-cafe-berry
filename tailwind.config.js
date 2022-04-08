@@ -18,6 +18,7 @@ module.exports = {
       },
       zIndex: {
         5: 5,
+        100: 100,
       },
       maxWidth: {
         "2/3": "66.666667%",
