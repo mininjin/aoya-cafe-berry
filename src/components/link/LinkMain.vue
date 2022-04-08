@@ -6,7 +6,7 @@
       :href="item.href"
       target="_blank"
       rel="noopener noreferrer"
-      :class="`w-full p-5 transition-all duration-1000 transform ${
+      :class="`w-full md:w-1/2 p-5 transition-all duration-1000 transform ${
         open[i] ? '' : 'translate-y-10 opacity-0'
       }`"
       :ref="setRefs"
