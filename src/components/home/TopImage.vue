@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="h-screen w-full lg:max-w-4xl overflow-hidden fixed top-0 left-0"
-  >
+  <div class="h-screen w-full lg:max-w-4xl overflow-hidden fixed top-0 left-0">
     <img
-      src="@/assets/images/berry.webp"
+      src="@/assets/images/waiter.webp"
       alt="雪景色"
       class="absolute w-full h-full object-cover"
     />
@@ -17,7 +15,7 @@
     />
     <div
       class="
-        text-center text-header text-2xl
+        text-center text-header text-shadow text-2xl
         font-bold
         h-full
         flex
@@ -43,9 +41,13 @@ import ImageSlideshow from "../ImageSlideshow.vue";
 const ANIMATION_DURATION = 8000;
 const IMAGE_LIST: ImagePayload[] = [
   { src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "お店の雰囲気" },
-  { src: TOP_IMAGE_PATH + "window.webp", alt: "お店の雰囲気" },
-  { src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の雰囲気" },
-  { src: TOP_IMAGE_PATH + "winter.webp", alt: "お店の雰囲気" },
+  {
+    src: TOP_IMAGE_PATH + "window.webp",
+    alt: "大きな窓からは四季折々の季節が",
+  },
+  { src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の看板" },
+  { src: TOP_IMAGE_PATH + "winter.webp", alt: "一面の雪景色" },
+  { src: TOP_IMAGE_PATH + "waiter.webp", alt: "ウェイター" },
 ];
 
 export default defineComponent({
@@ -57,6 +59,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.text-shadow {
+  text-shadow: 0.1rem 0.1rem 0.1rem #0005;
+}
 .bg-full {
   background-size: 100% 100%;
 }

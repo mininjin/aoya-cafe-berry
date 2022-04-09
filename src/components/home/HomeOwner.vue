@@ -54,17 +54,25 @@
             exteriorOpen ? '' : 'translate-y-10 opacity-0'
           }`"
         >
-          店の外観は円柱形のコンクリート壁に半面大きな窓！大きな窓からは季節によって景色が変わります。桜が舞い散るとこも雪が空から落ちるのも素敵です。
+          店の外観は円柱形のコンクリート壁に半面大きな窓！大きな窓からの景色は季節によって変わります。桜が舞い散るとこも雪が空から落ちるのも素敵です。
         </p>
       </div>
-      <p
-        :class="`mb-2 p-2 transition-all duration-1000 ${
-          bentoOpen ? '' : 'translate-y-10 opacity-0'
-        }`"
-        ref="bentoContainer"
-      >
-        お隣が「あおや和紙工房」さんなので団体さんの「お弁当」配達もします。個人のお客さまのご注文も大歓迎です。ご予算に応じて子ども会や部活のボリューム弁当から会合・法事のお料理、皿盛り、スイーツだけでもご準備させていただきます。ご相談下さいませ。
-      </p>
+      <div class="mb-2 md:flex flex-row-reverse items-center" ref="bentoContainer">
+        <img
+          src="@/assets/images/home/signature_2.webp"
+          alt="お店の外観"
+          :class="`w-3/4 md:w-1/2 object-contain rounded mx-auto transition-all duration-1000 ${
+            bentoOpen ? '' : 'translate-y-10 opacity-0'
+          }`"
+        />
+        <p
+          :class="`mb-2 p-2 transition-all duration-1000 ${
+            bentoOpen ? '' : 'translate-y-10 opacity-0'
+          }`"
+        >
+          お隣が「あおや和紙工房」さんなので団体さんの「お弁当」配達もします。個人のお客さまのご注文も大歓迎です。ご予算に応じて子ども会や部活のボリューム弁当から会合・法事のお料理、皿盛り、スイーツだけでもご準備させていただきます。ご相談下さいませ。
+        </p>
+      </div>
     </div>
     <div
       class="
