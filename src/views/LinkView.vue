@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-5 bg-theme left-0 max-w-4xl overflow-hidden">
+  <div class="relative z-5 bg-theme left-0 max-w-4xl">
     <StickyHeader />
     <LinkMain />
     <CommonFooter />
