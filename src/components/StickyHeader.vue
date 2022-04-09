@@ -122,7 +122,7 @@
               <p class="inline-block text-sm font-bold">Instagram</p>
             </a>
             <a
-              href="https://www.instagram.com/aoya.cafe_berry"
+              href="https://www.facebook.com/pages/category/Cafe/cafe-Berry-160911504045503/"
               class="inline-flex items-center flex-col mx-3"
               target="_blank"
               rel="noopener noreferrer"
