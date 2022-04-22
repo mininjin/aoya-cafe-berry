@@ -7,6 +7,7 @@ module.exports = {
         sub: "var(--sub-color)",
         "sub-0.5": "var(--sub-color-5)",
         header: "var(--header-color)",
+        "header-0.75": "var(--header-color-75)",
       },
       fontFamily: {
         strong: "var(--font-strong)",

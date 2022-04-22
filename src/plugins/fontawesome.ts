@@ -7,6 +7,7 @@ import {
   faFax,
   faCaretLeft,
   faCaretRight,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -23,7 +24,8 @@ library.add(
   faPhoneFlip,
   faFax,
   faInstagramSquare,
-  faFacebook
+  faFacebook,
+  faArrowDown
 );
 
 export { FontAwesomeIcon };

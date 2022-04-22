@@ -1,12 +1,14 @@
 <template>
-  <TopImage />
-  <div class="relative z-5 bg-theme left-0 lg:max-w-4xl">
-    <StickyHeader />
-    <HomeStart />
-    <HomeFoods />
-    <HomeAtmosphere />
-    <HomeOwner />
-    <CommonFooter />
+  <div>
+    <TopImage />
+    <div class="relative z-5 bg-theme left-0 lg:max-w-4xl">
+      <StickyHeader />
+      <HomeStart />
+      <HomeFoods />
+      <HomeAtmosphere />
+      <HomeOwner />
+      <CommonFooter />
+    </div>
   </div>
 </template>
 
