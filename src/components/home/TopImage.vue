@@ -20,7 +20,8 @@
       <div class="py-5 w-full flex items-end justify-center">
         <div class="w-1/2 h-10 flex items-center justify-center overflow-y-hidden">
           <span class="h-full  animate-guide relative">
-            <font-awesome-icon icon="arrow-down" class="h-full aspect-square text-black text-opacity-50 translate-x-0.5 translate-y-0.5 absolute top-0 left-0" />
+            <font-awesome-icon icon="arrow-down"
+              class="h-full aspect-square text-black text-opacity-50 translate-x-0.5 translate-y-0.5 absolute top-0 left-0" />
             <font-awesome-icon icon="arrow-down" class="h-full aspect-square text-header relative top-0 left-0" />
           </span>
         </div>
@@ -37,13 +38,17 @@ import ImageSlideshow from "../ImageSlideshow.vue";
 
 const ANIMATION_DURATION = 8000;
 const IMAGE_LIST: ImagePayload[] = [
-  { src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "お店の雰囲気" },
   {
     src: TOP_IMAGE_PATH + "window.webp",
-    alt: "大きな窓からは四季折々の季節が",
+    alt: "春の景色",
   },
+  {
+    src: TOP_IMAGE_PATH + "summer.webp",
+    alt: "夏の景色",
+  },
+  { src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "秋" },
+  { src: TOP_IMAGE_PATH + "winter.webp", alt: "冬" },
   { src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の看板" },
-  { src: TOP_IMAGE_PATH + "winter.webp", alt: "一面の雪景色" },
   { src: TOP_IMAGE_PATH + "waiter.webp", alt: "ウェイター" },
 ];
 
