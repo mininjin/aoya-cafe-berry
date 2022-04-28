@@ -15,16 +15,23 @@
         flex-col
         font-header
       ">
-      <p class="mb-2">自然豊かな鳥取 あおやの四季を</p>
-      <p class="mb-2">café Berryの大きな窓から見てみませんか？</p>
-      <div class="py-5 w-full flex items-end justify-center">
-        <div class="w-1/2 h-10 flex items-center justify-center overflow-y-hidden">
-          <span class="h-full  animate-guide relative">
-            <font-awesome-icon icon="arrow-down"
-              class="h-full aspect-square text-black text-opacity-50 translate-x-0.5 translate-y-0.5 absolute top-0 left-0" />
-            <font-awesome-icon icon="arrow-down" class="h-full aspect-square text-header relative top-0 left-0" />
-          </span>
+      <transition enter-from-class="opacity-0" leave-to-class="opacity-0">
+        <div v-if="message.length > 0" class="flex items-center justify-center flex-wrap transition-all duration-1000 ease-in">
+          <p v-for="p in message" :key="p" class="mb-2 w-full">{{ p }}</p>
         </div>
+      </transition>
+      <div class="py-5 w-full flex items-end justify-center">
+        <div class="h-10">
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 py-5 w-full flex items-end justify-center">
+      <div class="w-1/2 h-10 flex items-center justify-center overflow-y-hidden">
+        <span class="h-full  animate-guide relative">
+          <font-awesome-icon icon="arrow-down"
+            class="h-full aspect-square text-black text-opacity-50 translate-x-0.5 translate-y-0.5 absolute top-0 left-0" />
+          <font-awesome-icon icon="arrow-down" class="h-full aspect-square text-header relative top-0 left-0" />
+        </span>
       </div>
     </div>
   </div>
@@ -33,29 +40,62 @@
 <script lang="ts">
 import { ImagePayload } from "@/@types/type";
 import { TOP_IMAGE_PATH } from "@/constants/constant";
-import { defineComponent, } from "vue";
+import { defineComponent, onMounted, ref, } from "vue";
 import ImageSlideshow from "../ImageSlideshow.vue";
 
 const ANIMATION_DURATION = 8000;
-const IMAGE_LIST: ImagePayload[] = [
+type ImageMessage = [string, string]
+const IMAGE_LIST: (ImagePayload & { message: ImageMessage })[] = [
   {
-    src: TOP_IMAGE_PATH + "window.webp",
-    alt: "春の景色",
+    src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "秋",
+    message: ["自然豊かな鳥取 あおやの四季を", "café Berryの大きな窓から見てみませんか？"]
   },
   {
     src: TOP_IMAGE_PATH + "summer.webp",
     alt: "夏の景色",
+    message: ["夏が近づくと 目の前のエゴの木に", "たくさんの花が咲きます"],
   },
-  { src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "秋" },
-  { src: TOP_IMAGE_PATH + "winter.webp", alt: "冬" },
-  { src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の看板" },
-  { src: TOP_IMAGE_PATH + "waiter.webp", alt: "ウェイター" },
+  {
+    src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の看板",
+    message: ["外のプランターは季節ごとに", "いろんな表情をみせます"],
+  },
+  {
+    src: TOP_IMAGE_PATH + "window.webp",
+    alt: "春の景色",
+    message: ["種類の違う木々も", "季節によって色を変えます"]
+  },
+  {
+    src: TOP_IMAGE_PATH + "waiter.webp", alt: "ウェイター",
+    message: ["冷たい雨の日も", "また違う雰囲気を出してくれます"],
+  },
+  {
+    src: TOP_IMAGE_PATH + "winter.webp", alt: "冬",
+    message: ["ゆっくりと雪が舞い散るのも", "吹雪くのも見に来て下さい"]
+  },
 ];
 
 export default defineComponent({
   setup() {
+    const message = ref<string[]>([]);
 
-    return { ANIMATION_DURATION, IMAGE_LIST, };
+    onMounted(() => {
+      let index = 0;
+      const setMessage = () => {
+        // enter
+        setTimeout(() => {
+          message.value = IMAGE_LIST[index].message;
+        }, ANIMATION_DURATION * 0.2 - 1000);
+        // leave
+        setTimeout(() => {
+          message.value = []
+          index = (index + 1) % IMAGE_LIST.length;
+        }, ANIMATION_DURATION - 1000)
+      }
+      setMessage();
+      setInterval(setMessage, ANIMATION_DURATION);
+    });
+
+    return { ANIMATION_DURATION, IMAGE_LIST, message };
   },
   components: { ImageSlideshow },
 });
