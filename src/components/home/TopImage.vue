@@ -5,18 +5,11 @@
   </div>
   <div class="h-screen relative top-0 left-0 lg:max-w-4xl">
     <img src="@/assets/logo.svg" alt="ロゴ" class="absolute w-32 object-contain top-20 right-5 animate" />
-    <div class="
-        text-center text-header text-shadow text-2xl
-        font-bold
-        h-full
-        flex
-        items-center
-        justify-end
-        flex-col
-        font-header
-      ">
+    <div
+      :class="`text-center text-shadow text-2xl font-bold h-full flex items-center justify-end flex-col font-header ${reversed ? 'text-theme' : 'text-header'}`">
       <transition enter-from-class="opacity-0" leave-to-class="opacity-0">
-        <div v-if="message.length > 0" class="flex items-center justify-center flex-wrap transition-all duration-1000 ease-in">
+        <div v-if="message.length > 0"
+          class="flex items-center justify-center flex-wrap transition-all duration-1000 ease-in py-2">
           <p v-for="p in message" :key="p" class="mb-2 w-full">{{ p }}</p>
         </div>
       </transition>
@@ -45,7 +38,7 @@ import ImageSlideshow from "../ImageSlideshow.vue";
 
 const ANIMATION_DURATION = 8000;
 type ImageMessage = [string, string]
-const IMAGE_LIST: (ImagePayload & { message: ImageMessage })[] = [
+const IMAGE_LIST: (ImagePayload & { message: ImageMessage, reversed?: boolean })[] = [
   {
     src: TOP_IMAGE_PATH + "atmosphere.webp", alt: "秋",
     message: ["自然豊かな鳥取 あおやの四季を", "café Berryの大きな窓から見てみませんか？"]
@@ -53,7 +46,8 @@ const IMAGE_LIST: (ImagePayload & { message: ImageMessage })[] = [
   {
     src: TOP_IMAGE_PATH + "summer.webp",
     alt: "夏の景色",
-    message: ["夏が近づくと 目の前のエゴの木に", "たくさんの花が咲きます"],
+    message: ["夏が近づくと エゴの木に", "たくさんの花が咲きます"],
+    reversed: true
   },
   {
     src: TOP_IMAGE_PATH + "berry.webp", alt: "お店の看板",
@@ -62,27 +56,30 @@ const IMAGE_LIST: (ImagePayload & { message: ImageMessage })[] = [
   {
     src: TOP_IMAGE_PATH + "window.webp",
     alt: "春の景色",
-    message: ["種類の違う木々も", "季節によって色を変えます"]
+    message: ["種類の違う木々も", "季節によって色を変えます"],
+    reversed: true
   },
   {
     src: TOP_IMAGE_PATH + "waiter.webp", alt: "ウェイター",
-    message: ["冷たい雨の日も", "また違う雰囲気を出してくれます"],
+    message: ["冷たい雨の日も また", "違った雰囲気を出してくれます"],
   },
   {
     src: TOP_IMAGE_PATH + "winter.webp", alt: "冬",
-    message: ["ゆっくりと雪が舞い散るのも", "吹雪くのも見に来て下さい"]
+    message: ["ゆっくりと雪が舞い散るのも", "吹雪くのも見に来て下さい"], reversed: true
   },
 ];
 
 export default defineComponent({
   setup() {
     const message = ref<string[]>([]);
+    const reversed = ref<boolean>(false);
 
     onMounted(() => {
       let index = 0;
       const setMessage = () => {
         // enter
         setTimeout(() => {
+          reversed.value = IMAGE_LIST[index].reversed ?? false
           message.value = IMAGE_LIST[index].message;
         }, ANIMATION_DURATION * 0.2 - 1000);
         // leave
@@ -95,7 +92,7 @@ export default defineComponent({
       setInterval(setMessage, ANIMATION_DURATION);
     });
 
-    return { ANIMATION_DURATION, IMAGE_LIST, message };
+    return { ANIMATION_DURATION, IMAGE_LIST, message, reversed };
   },
   components: { ImageSlideshow },
 });
